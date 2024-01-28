@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouton Web avec Design</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="code.js" defer></script>
+</head>
+<body>
+    <h1>Barrage intelligente</h1>
+    <main>   
+        <article class="data">
+            <ul>
+                <li>
+
+                    <div class="DataItem">
+                        <p>temperature d'eau:</p>
+                        <h2 
+                        id="water">00c</h2>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="DataItem">
+                        <p>pourcentage de niveau d'eau:</p>
+                        <h2 id="water">00%</h2>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="DataItem">
+                        <p>qualite d'eau</p>
+                        <h2>60%</h2>
+                    </div>
+                </li>
+
+
+            </ul>
+        </article>
+        <article>
+            <h2>hauteur de  barrage</h2>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="elever">
+            </div>
+            <br>
+            <button onclick="send(0)">elever le barrage</button>
+        </article>
+    </main>
+
+   </script>
+
+</body>
+</html>
