@@ -2,8 +2,6 @@ socket = new WebSocket("ws://192.168.1.16:81")
 connected = false;
 
 
-
-
 socket.onopen = (e) => {
     socket.send("connected yay!");
     connected = true;
@@ -14,7 +12,6 @@ socket.onclose = function (e) {
     connected = false;
   };
   
-
 socket.onmessage = function(recu){
     let parts = recu.data.split('_');
 
@@ -22,9 +19,9 @@ socket.onmessage = function(recu){
       case 't':
         var temp = parts[1];
         console.log('Temperature:', temp);
-        document.getElementById("temperature").innerHTML = tempera + " C"
+        document.getElementById("temperature").innerHTML = temp + " C"
         break;
-
+    
       case 'w':
         var waterLevel = parts[1];
         console.log('Water Level:', waterLevel);
@@ -37,10 +34,7 @@ socket.onmessage = function(recu){
 }
 
 function send(cas) {
-  if (cas==0){
-    socket.send(document.getElementById("elever").value);
-  }
-    
+    socket.send(document.getElementById("elever").value);    
 }
 
 

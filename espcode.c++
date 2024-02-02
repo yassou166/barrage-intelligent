@@ -69,20 +69,21 @@ void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * msg, size_t length) 
 
 void setup() {
   Serial.begin(115200);
-servo.attach(servoPin, 500, 2400);
+  servo.attach(servoPin, 500, 2400);
+
   WiFi.softAP(name,passwd);
   WiFi.softAPConfig(mainIP,mainIP, IPAddress(255, 255, 255, 0));
+
   pinMode(TRIG_PIN, OUTPUT); 
   pinMode(ECHO_PIN, INPUT);  
   pinMode(LED_PIN, OUTPUT);  
   pinMode(buzzerPin, OUTPUT);
-  Serial.begin(9600); 
-  Serial.println(F("DHTxx test!")); 
+
   dht.begin();
   Serial.println("espServer on");
-
 }
 int pos = 0;
+
 void loop() {
   webSocket.loop();
   webSocket.broadcastTXT("t_"+readTemp());
