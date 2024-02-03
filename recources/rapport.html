@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rapport</title>
+</head>
+<style>
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12;
+        margin: 50px;
+    }
+
+    h2{
+        font-weight: 600;
+    }
+</style>
+<body>
+    <h2>tohtml && css</h2>
+    <h2>Barrage intelligent (still working on it)</h2>
+    <h2>Description générale :</h2>
+    
+    <p>Un barrage intelligent utilisant une carte Arduino nano,esp8266, un servo-moteur, un buzzer, exploitant le WiFi et des capteurs d'eau</p>
+    <h2>Composants :</h2>
+    <ul>
+        <li>Arduino Nano : Contrôleur principal</li>
+        <li>ESP8266 : Module WiFi, similaire à l'ESP32 mais sans Bluetooth car non requis, et moins cher.</li>
+        <li>Servo-moteur (MG90s) : Précision de contrôle de la barrière, à moindre coût.</li>
+        <li>Boîtier étanche : Protection des composants.</li>
+        <li>Buzzer (1800-01076) : Alarme pour les cas d'urgence, module prêt à l'emploi.</li>
+        <li>LED RGB (0600-00149 chez B2) : Pour fournir des indications visuelles. Économe en énergie, capable de changer de couleur, puissante.</li>
+        <li>3 capteurs de niveau d'eau (1800-00321 chez B2) : Pour mesurer le niveau d'eau et fournir des données environnementales. Trois capteurs car le niveau d'eau n'est pas toujours plat.</li>
+        <li>Panneau solaire (0800-01562 chez B2) : Source d'énergie, le solaire est avantageux.</li>
+        <li>Batterie lithium rechargeable (2224-00040 chez B2) : Pour le stockage de l'énergie.</li>
+        <li>Turbines (impression 3D) : Convertissent l'énergie cinétique en énergie mécanique.</li>
+        <li>Générateur (à créer) : Convertit l'énergie des turbines en énergie utilisable.</li>
+        <li>Breadboard et fils de connexion : Pour prototyper le circuit.</li>
+        <li>Plaque (bois de chêne) : Barrière. Le chêne est résistant à l'eau et à l'humidité.</li>    
+    </ul>
+
+    <h2>Fonctionnement </h2>
+    <p>Lorsqu'un certain pourcentage du "barrage intelligent" est rempli (40%), un tuyau relié à la barrière amène l'eau sous pression vers un circuit qui la transforme en énergie (le tuyau est incliné pour accélérer l'écoulement) et les panneaux solaires exploitent l'énergie solaire pour charger les batteries. <br> barrière, contrôlée par un servo et une Arduino Uno, reçoit le niveau d'eau des capteurs et les envoie via HTTP à un site web connecté en WiFi grâce au module WiFi. <br> pourrons voir le pourcentage d'eau, ainsi que le pourcentage d'énergie restant dans les batteries  et changer des parametres. <br> l'eau dépasse un certain seuil défini dans les réglages de l'application contrôlant ce système, un buzzer retentira et une LED deviendra rouge. <br> cas de faible niveau d'énergie, le buzzer sonnera mais la LED deviendra jaune. Lorsque tout est normal, la lumière sera éteinte pour économiser de l'énergie. Lorsque les batteries sont chargées, la lumière deviendra verte.</p>
+</body>
+</html>
