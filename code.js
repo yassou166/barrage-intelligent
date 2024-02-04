@@ -1,7 +1,7 @@
 //creer un connection
 console.log("hello world")
 console.log(window.location.hostname);
-let ip="192.168.1.16";
+let ip="192.168.1.19";
 socket = new WebSocket("ws://"+ip+":81")
 connected = false;
 
