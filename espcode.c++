@@ -2,8 +2,6 @@
 #include <WebSocketsServer.h>
 #include <string>
 #include <stdio.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include <ESP32Servo.h>
 
 
@@ -14,11 +12,11 @@
 #include "DHT.h"
 
 
-
+/*
 #define DHTPIN 13
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
-
+*/
 float duration_us, distance_cm;
 
 const int servoPin = 18;
@@ -36,7 +34,7 @@ void elevate(int a){
 }
 
 float readTemp(){
-
+  //readd temperature from sensors
   Serial.print(distance_cm);
   Serial.println(" cm");
 }
@@ -53,7 +51,7 @@ float readWaterLevel(){
 void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * msg, size_t length) {
     if (type ==  WStype_TEXT){
         Serial.println(msg);
-        elevate(*((int*)(msg)));
+        //elevate(*((int*)(msg)));
     }
 
     if (type == WStype_DISCONNECTED){
@@ -79,13 +77,15 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);  
   pinMode(buzzerPin, OUTPUT);
 
-  dht.begin();
+  //dht.begin();
   Serial.println("espServer on");
 }
 int pos = 0;
 
 void loop() {
   webSocket.loop();
-  webSocket.broadcastTXT("t_"+readTemp());
-  webSocket.broadcastTXT("w_"+readWaterLevel());
+  /*webSocket.broadcastTXT("t_"+readTemp());
+  webSocket.broadcastTXT("w_"+readWaterLevel());*/
+  webSocket.broadcastTXT("wii");
+  delay(500);
 }
